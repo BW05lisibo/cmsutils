@@ -67,9 +67,6 @@ public class StringUtils {
 	 * 获取n位随机英文字符串
 	 */
 	public static String randomStr(int n){
-		if(n<=0){
-			return "";
-		}else{
 			StringBuilder sb=new StringBuilder();
 			Random random=new Random();
 			for (int i = 0; i < n; i++) {
@@ -77,7 +74,6 @@ public class StringUtils {
 				sb.append((char)t);
 			}
 			return sb.toString();
-		}
 		
 	}
 	
@@ -106,6 +102,9 @@ public class StringUtils {
 		}
 		return sb.toString();
 	}
+	/**
+	 * 获取一个中文
+	 */
 	private static String getOneCn(){
 		String str = "";
         int hightPos; 
