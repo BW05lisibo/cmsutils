@@ -1,7 +1,12 @@
 package com.bw.lisibo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Test;
 
+import com.bbw.lisibo.DateUtil;
 import com.bbw.lisibo.StringUtils;
 
 /**
@@ -50,5 +55,13 @@ public class StringTest {
 	public void grtRandonCnStr(){
 		String str = StringUtils.grtRandonCnStr(5);
 		System.out.println("随机中文字符串："+str);
+	}
+	@Test
+	public void ageAge() throws ParseException{
+		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+		Date date = format.parse("2001-10-23");
+		int i = DateUtil.getAge(date);
+		System.out.println(i);
+		
 	}
 }
