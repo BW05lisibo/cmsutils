@@ -127,4 +127,46 @@ public class StringUtils {
 
         	return str;
 	}
+	
+	/**
+	 *           \n
+	 * @param src
+	 * @return
+	 */
+	public static String toHtml(String src) {
+		
+		String[] strings = src.split("\\\\n");
+		StringBuilder sb = new StringBuilder();
+		for (String string : strings) {
+			sb.append("<p>").append(string).append("</p>");
+		}
+		return sb.toString();
+	}
+	
+	//测试工具包中isNumber()，
+		/**
+		 * 
+		 * @param src
+		 * @return
+		 */
+		public static boolean isNumber(String src) {
+			//String regix="[0-9]{1,}(\\.?|[0-9]*)";
+			String regix="[0-9]{1,}\\.?[0-9]*";
+			return src.matches(regix);
+			
+			
+		}
+		
+		/**
+		 * 测试工具包中hasText()，该方法是过滤String参数空格后判断是否有值，
+		 * 如果你有该功能方法，但不是这个方法名不扣分。如果没有该方法，必须现在编写该方法
+		 * @param src
+		 * @return
+		 */
+		public static boolean hasText(String src) {
+			String string = src.replaceAll("\\s", "");
+			return (!"".equals(string));
+		}
+		
+		
 }
