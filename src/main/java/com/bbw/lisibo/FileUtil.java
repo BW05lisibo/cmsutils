@@ -1,6 +1,7 @@
 package com.bbw.lisibo;
 
 import java.io.File;
+import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
