@@ -62,6 +62,11 @@ public class StringTest {
 		Date date = format.parse("2001-10-23");
 		int i = DateUtil.getAge(date);
 		System.out.println(i);
-		
+	}
+	@Test
+	public void toHtml(){
+		String str = StringUtils.toHtml("jghasfjhgj"
+				+ "khaf\ngjj");
+		System.out.println(str);
 	}
 }
