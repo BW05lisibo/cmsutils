@@ -129,17 +129,29 @@ public class StringUtils {
 	}
 	
 	/**
-	 *           \n
+	 *     换行      \n
 	 * @param src
 	 * @return
 	 */
 	public static String toHtml(String src) {
-		
-		String[] strings = src.split("\\\r");
+		StringBuilder sb = new StringBuilder();
+		if (src.contains("\n\r")) {
+			src.replace("\n\\r", "\n");
+			sb.append(src);
+		}else if(src.contains("\\r")){
+			src.replace("\\r", "<br/>");
+			sb.append(src);
+		}else{
+			String[] strings = src.split("\\\r");
+			for (String string : strings) {
+				sb.append("<html>").append("<p>").append(string).append("</p>").append("<html/>");
+			}
+		}
+		/*String[] strings = src.split("\\\r");
 		StringBuilder sb = new StringBuilder();
 		for (String string : strings) {
-			sb.append("<p>").append(string).append("</p>");
-		}
+			sb.append("<html>").append("<p>").append(string).append("</p>").append("<html/>");
+		}*/
 		return sb.toString();
 	}
 public static String toHtml1(String src) {
@@ -154,7 +166,7 @@ public static String toHtml1(String src) {
 	
 	//测试工具包中isNumber()，
 		/**
-		 * 
+		 * 测试工具包中isNumber()，
 		 * @param src
 		 * @return
 		 */
