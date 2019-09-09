@@ -65,8 +65,7 @@ public class StringTest {
 	}
 	@Test
 	public void toHtml(){
-		String str = StringUtils.toHtml("jghasfjhgj"
-				+ "khaf\ngjj");
+		String str = StringUtils.toHtml("jghasf    jhgjkhafgjj");
 		System.out.println(str);
 	}
 }

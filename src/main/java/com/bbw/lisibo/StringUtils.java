@@ -135,10 +135,19 @@ public class StringUtils {
 	 */
 	public static String toHtml(String src) {
 		
-		String[] strings = src.split("\\\n");
+		String[] strings = src.split("\\\r");
 		StringBuilder sb = new StringBuilder();
 		for (String string : strings) {
 			sb.append("<p>").append(string).append("</p>");
+		}
+		return sb.toString();
+	}
+public static String toHtml1(String src) {
+		
+		String[] strings = src.split("\\\r");
+		StringBuilder sb = new StringBuilder();
+		for (String string : strings) {
+			sb.append("<html>").append(string).append("<html/>");
 		}
 		return sb.toString();
 	}
