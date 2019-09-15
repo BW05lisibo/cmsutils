@@ -135,9 +135,11 @@ public class StringUtils {
 	 */
 	public static String toHtml(String src) {
 		StringBuilder sb = new StringBuilder();
+		//判断是否为\n\r
 		if (src.contains("\n\r")) {
-			src.replace("\n\\r", "\n");
+			src.replace("\n\r", "\n");
 			sb.append(src);
+			//判断是否为\r
 		}else if(src.contains("\\r")){
 			src.replace("\\r", "<br/>");
 			sb.append(src);
@@ -188,6 +190,8 @@ public static String toHtml1(String src) {
 			String string = src.replaceAll("\\s", "");
 			return (!"".equals(string));
 		}
+		
+
 		
 		
 }
