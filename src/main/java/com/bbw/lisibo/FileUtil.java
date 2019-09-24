@@ -129,7 +129,7 @@ public static Logger log = Logger.getLogger(FileUtil.class);
 		String lineString = null;
 		List list = new ArrayList();
 		while ((lineString = bufferedReader.readLine()) != null) {
-			String[] split = lineString.split("\\|");
+			String[] split = lineString.split("\\|\\|");
 			Object object = constructor.newInstance(split);
 			list.add(object);
 
@@ -138,4 +138,47 @@ public static Logger log = Logger.getLogger(FileUtil.class);
 		return list;
 
 	}
+	
+	/*便利文件夹
+	*/	
+		public static List<String> getFileList(String pathName){
+			String[] list = new File(pathName).list();
+			 List<String> fileList = new ArrayList<String>();
+			for (String string : list) {
+				File subFile = new File(pathName + "\\" + string);
+				if(subFile!=null && subFile.exists() && subFile.isFile())
+					fileList.add(pathName + "\\" + string);
+			}
+			return fileList;
+			
+		}
+		
+		/**
+		 * 读取文件内容
+		 * @throws IOException 
+		 */
+		public static String readFile(String fileName) throws IOException {
+
+			StringBuilder sb = new StringBuilder();
+			
+			File file = new File(fileName);
+			BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+			String lineString = null;
+			
+			while ((lineString = bufferedReader.readLine()) != null) {
+				sb.append(lineString).append("\n");
+			}
+			return sb.toString();
+		}
+		
+
+		public static void fileToBean(String string, Class<String> class1,
+				Class<String> class2, Class<String> class3, Class<String> class4,
+				Class<String> class5) {
+			// TODO Auto-generated method stub
+			
+		}
+
+	
+	
 }
